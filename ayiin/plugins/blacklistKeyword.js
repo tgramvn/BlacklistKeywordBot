@@ -56,25 +56,25 @@ bot_1.default.command('addbl', (ayiin) => __awaiter(void 0, void 0, void 0, func
     const arg = ayiin.args;
     const replyToMessage = message.reply_to_message;
     if (ayiin.chat.type === "private")
-        return yield ayiin.sendMessage(`Apakah ini grup ? Lakukan perintah ini di grup kawan`);
+        return yield ayiin.sendMessage(`Đây có phải là một nhóm không? Thực hiện lệnh này trong nhóm bạn bè`);
     if (admin.status === 'creator' || admin.status === "administrator") {
         if (replyToMessage) {
             const keywords = replyToMessage.text.split(' ');
             const res = yield (0, blacklistKeyword_1.addBlacklistKeyword)(message.chat.id, keywords);
             if (res !== "Failed")
-                return yield ayiin.sendMessage(`Berhasil menambahkan ${res.length} Kata kunci ke daftar hitam`);
+                return yield ayiin.sendMessage(`Đã thêm thành công ${res.length} vào danh sách đen`);
         }
         else if (arg.length !== 0) {
             const res = yield (0, blacklistKeyword_1.addBlacklistKeyword)(message.chat.id, arg);
             if (res !== "Failed")
-                return yield ayiin.sendMessage(`Berhasil menambahkan ${res.length} Kata kunci ke daftar hitam`);
+                return yield ayiin.sendMessage(`Đã thêm thành công ${res.length} Từ khóa vào danh sách đen`);
         }
         else {
-            return yield ayiin.sendMessage(`Silahkan balas ke pesan atau berikan saya beberapa kata kunci untuk di masukkan ke daftar hitam.`);
+            return yield ayiin.sendMessage(`Vui lòng trả lời tin nhắn hoặc cho tôi một vài từ khóa để đưa vào danh sách đen.`);
         }
     }
     else {
-        return yield ayiin.sendMessage('Perintah ini hanya untuk admin dan owner group.');
+        return yield ayiin.sendMessage('Lệnh này chỉ dành cho quản trị viên và chủ sở hữu nhóm.');
     }
 }));
 bot_1.default.command('getbl', (ayiin) => __awaiter(void 0, void 0, void 0, function* () {
@@ -87,7 +87,7 @@ bot_1.default.command('getbl', (ayiin) => __awaiter(void 0, void 0, void 0, func
         return yield ayiin.sendMessage(textItem);
     }
     else {
-        return yield ayiin.sendMessage('Belum memiliki daftar hitam apapun.');
+        return yield ayiin.sendMessage('Chưa có danh sách đen nào.');
     }
 }));
 bot_1.default.command('delbl', (ayiin) => __awaiter(void 0, void 0, void 0, function* () {
@@ -96,27 +96,27 @@ bot_1.default.command('delbl', (ayiin) => __awaiter(void 0, void 0, void 0, func
     const arg = ayiin.args;
     const replyToMessage = message.reply_to_message;
     if (ayiin.chat.type === "private")
-        return yield ayiin.sendMessage(`Apakah ini grup ? Lakukan perintah ini di grup kawan`);
+        return yield ayiin.sendMessage(`Đây có phải là một nhóm không? Thực hiện lệnh này trong nhóm bạn bè`);
     if (admin.status === 'creator' || admin.status === "administrator") {
         if (replyToMessage) {
             const keywords = replyToMessage.text.split(' ');
             const res = yield (0, blacklistKeyword_1.deleteBlacklistKeyword)(message.chat.id, keywords);
             if (res !== "Failed")
-                return yield ayiin.sendMessage(`Berhasil menghapus ${res.length} Kata kunci dari daftar hitam`);
+                return yield ayiin.sendMessage(`Đã xóa thành công ${res.length} trong danh sách đen`);
         }
         else if (arg.length !== 0) {
             const res = yield (0, blacklistKeyword_1.deleteBlacklistKeyword)(message.chat.id, arg);
             if (res !== "Failed")
-                return yield ayiin.sendMessage(`Berhasil menghapus ${res.length} Kata kunci dari daftar hitam`);
+                return yield ayiin.sendMessage(`Đã xóa thành công ${res.length} trong danh sách đen`);
         }
         else {
-            return yield ayiin.sendMessage(`Silahkan balas ke pesan atau berikan saya beberapa kata kunci untuk di hapus dari daftar hitam.`);
+            return yield ayiin.sendMessage(`Vui lòng trả lời tin nhắn hoặc cung cấp cho tôi một số từ khóa để xóa khỏi danh sách đen.`);
         }
     }
     else {
-        return yield ayiin.sendMessage('Perintah ini hanya untuk admin dan owner group.');
+        return yield ayiin.sendMessage('Lệnh này chỉ dành cho quản trị viên và nhóm chủ sở hữu.');
     }
 }));
-(0, bot_1.addHelp)('/addbl keyword|reply', 'Untuk menambahkan kata kunci daftar hitam');
-(0, bot_1.addHelp)('/getbl', 'Untuk melihat kata kunci daftar hitam');
-(0, bot_1.addHelp)('/delbl keyword|reply', 'Untuk Menghapus kata kunci daftar hitam');
+(0, bot_1.addHelp)('/addbl keyword|reply', 'Để thêm từ khóa vào danh sách đen');
+(0, bot_1.addHelp)('/getbl', 'Để xem các từ khóa trong danh sách đen');
+(0, bot_1.addHelp)('/delbl keyword|reply', 'Để xóa các từ khóa trong danh sách đen');
