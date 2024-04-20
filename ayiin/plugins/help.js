@@ -50,10 +50,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const bot_1 = __importStar(require("../bot"));
 bot_1.default.command('help', (ayiin) => __awaiter(void 0, void 0, void 0, function* () {
-    let helpText = 'Perintah yang tersedia di bot ini\n\n\n';
+    let helpText = 'Các lệnh có sẵn trong bot này\n\n\n';
     for (let key in bot_1.help) {
         helpText += `CMD: ${key}\nINFO: ${bot_1.help[key]}\n\n`;
     }
     return yield ayiin.sendMessage(helpText);
 }));
-(0, bot_1.addHelp)('/help', 'Untuk melihat perintah di bot');
+(0, bot_1.addHelp)('/help', 'Để xem các lệnh trong bot');
