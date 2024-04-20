@@ -53,10 +53,11 @@ const textStart = (user) => {
     const text = `
 Hello ${user.first_name}
 
-Jika anda membutuhkan saya untuk membantu grup anda menghapus pesan yang ada di daftar hitam.
-silahkan masukkan saya ke grup anda.
+Nếu bạn cần tôi giúp nhóm của bạn xóa các tin nhắn trong danh sách đen.
 
-Klik tombol dibawah untuk menambahkan saya ke grup anda.
+Vui lòng đưa tôi vào nhóm của bạn.
+
+Nhấp vào nút bên dưới để thêm tôi vào nhóm của bạn.
 `;
     return text;
 };
@@ -68,21 +69,21 @@ bot_1.default.command('start', (ayiin) => __awaiter(void 0, void 0, void 0, func
         reply_markup: {
             inline_keyboard: [
                 [{
-                        text: "Tambahkan Saya",
+                        text: "Thêm tôi vào nhóm",
                         url: `https://t.me/${me.username}?startgroup=true`
                     }],
                 [
                     {
                         text: 'Support',
-                        url: 'https://t.me/AyiinChats'
+                        url: 'https://t.me/iamthayrio'
                     },
                     {
                         text: 'Update',
-                        url: 'https://t.me/AyiinChannel'
+                        url: 'https://t.me/noiquy
                     },
                 ]
             ]
         }
     });
 }));
-(0, bot_1.addHelp)('/start', 'Untuk memulai bot');
+(0, bot_1.addHelp)('/start', 'Để bắt đầu bot');
